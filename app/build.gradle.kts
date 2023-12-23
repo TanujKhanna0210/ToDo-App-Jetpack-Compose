@@ -76,7 +76,7 @@ dependencies {
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
     kapt ("com.google.dagger:hilt-compiler:2.44")
 
-    // implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:2.5.1")
 
     implementation("androidx.navigation:navigation-compose:2.5.1")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
@@ -84,5 +84,9 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+//    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+}
+
+kapt {
+    correctErrorTypes = true
 }
