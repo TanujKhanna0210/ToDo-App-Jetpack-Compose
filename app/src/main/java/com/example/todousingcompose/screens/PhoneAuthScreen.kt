@@ -44,7 +44,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.todousingcompose.util.Resource
+import com.example.todousingcompose.util.Routes
 import com.example.todousingcompose.viewmodel.PhoneAuthViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -53,6 +55,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun PhoneAuthScreen(
     activity: Activity,
+    navController: NavController,
     viewModel: PhoneAuthViewModel = hiltViewModel()
 ) {
     val phoneNumber = remember { mutableStateOf("") }
@@ -66,8 +69,7 @@ fun PhoneAuthScreen(
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
+            .fillMaxSize()
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -214,6 +216,7 @@ fun PhoneAuthScreen(
                                     it.data,
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                navController.navigate(Routes.HOME_SCREEN)
                             }
                             is Resource.Failure->{
                                 loading = false
