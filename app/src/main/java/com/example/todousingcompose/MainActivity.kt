@@ -16,6 +16,7 @@ import com.example.todousingcompose.screens.HomeScreen
 import com.example.todousingcompose.screens.PhoneAuthScreen
 import com.example.todousingcompose.ui.theme.ToDoUsingComposeTheme
 import com.example.todousingcompose.util.Routes
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ fun AppNavigation(activity: Activity) {
     val navController = rememberNavController()
     val navHost = NavHost(
         navController = navController,
-        startDestination = Routes.PHONE_AUTH_SCREEN
+        startDestination = if (FirebaseAuth.getInstance().currentUser != null) Routes.HOME_SCREEN else Routes.PHONE_AUTH_SCREEN
     ) {
         composable(Routes.PHONE_AUTH_SCREEN) {
             PhoneAuthScreen(activity = activity, navController = navController)

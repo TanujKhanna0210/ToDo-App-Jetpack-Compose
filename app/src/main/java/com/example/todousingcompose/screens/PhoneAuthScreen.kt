@@ -216,7 +216,11 @@ fun PhoneAuthScreen(
                                     it.data,
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                navController.navigate(Routes.HOME_SCREEN)
+                                navController.navigate(Routes.HOME_SCREEN) {
+                                    popUpTo(Routes.PHONE_AUTH_SCREEN) {
+                                        inclusive = true
+                                    }
+                                }
                             }
                             is Resource.Failure->{
                                 loading = false
